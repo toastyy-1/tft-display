@@ -51,6 +51,15 @@ void MP_clearScreen() {
 	tft.fillScreen(BLACK_TFT);
 }
 
+// clear the frame buffer
+void MP_clearFrameBuffer() {
+    for (int x = 0; x < META_WIDTH; x++) {
+        for (int y = 0; y < META_HEIGHT; y++) {
+            MP_frame_buffer[x][y] = BLACK_TFT;
+        }
+    }
+}
+
 // displays all pixels stored in a frame buffer for the display
 void MP_displayFrame() {
 	for (int y = 0; y < META_HEIGHT; y++) {
@@ -95,4 +104,12 @@ void MP_drawLine(int x0, int y0, int x1, int y1, uint16_t color) {
             y0 += step_y;
         }
     }
+}
+
+uint16_t randomColor() {
+  uint8_t r = random(0, 32);
+  uint8_t g = random(0, 64);
+  uint8_t b = random(0, 32);
+
+  return (r << 11) | (g << 5) | b;
 }

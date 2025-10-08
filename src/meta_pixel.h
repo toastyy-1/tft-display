@@ -29,7 +29,9 @@ void MP_initialize(int block_size);
 
 void MP_clearScreen();
 void MP_displayFrame();
+void MP_clearFrameBuffer();
 void MP_drawPixel(int x, int y, uint16_t color);
 void MP_drawLine(int x0, int y0, int x1, int y1, uint16_t color);
+uint16_t randomColor();
 
 #endif

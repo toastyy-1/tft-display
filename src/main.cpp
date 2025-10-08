@@ -1,6 +1,7 @@
 #include <Arduino.h>
 #include <Adafruit_GFX.h>
 #include <Adafruit_ILI9341.h>
+#include <stdlib.h>
 #include "meta_pixel.h"
 
 // pin connections!
@@ -19,13 +20,23 @@ void setup() {
 
 	// initialize MP tool
 	MP_initialize(8);
-
-	MP_drawLine(0, 0, 30, 5, BLUE_TFT);
-	MP_drawPixel(3,3,RED_TFT);
-
 	MP_displayFrame();
+
+	// initialize other stuff
+	randomSeed(3984756);
 }
 
 void loop() {
+	MP_clearFrameBuffer();
 
+	int randx = random(40);
+	int randy = random(30);
+
+	uint16_t rand_color = randomColor();
+
+	MP_drawPixel(randx, randy, rand_color);
+
+	MP_displayFrame();
+
+	delay(100);
 }
