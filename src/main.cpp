@@ -36,7 +36,7 @@ void setup() {
 	MP_clearScreen();
 
 	// initialize MP tool
-	MP_initialize(8);
+	MP_initialize(1);
 
 	// initialize game of life grid by allocating a properly sized array sized to fit the screen
 	setLifeGridDimensions(MP_getDisplayWidth(), MP_getDisplayHeight());

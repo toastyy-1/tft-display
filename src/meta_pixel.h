@@ -17,9 +17,14 @@ extern Adafruit_ILI9341 tft;
 #define MP_SCREEN_ROTATION 3 // this rotation assumes the origin is in the TOP LEFT corner of the screen
 
 // frame buffer
-extern uint16_t** MP_frame_buffer;
+extern uint16_t* MP_frame_buffer;
 // "pixel" display
 extern int MP_BLOCK_SIZE;
+
+// pin connections
+const int TFT_CS = 5;
+const int TFT_DC = 18;
+const int TFT_RST = 17;
 
 int MP_getDisplayWidth();
 int MP_getDisplayHeight();
@@ -33,5 +38,7 @@ void MP_clearFrameBuffer();
 void MP_drawPixel(int x, int y, uint16_t color);
 void MP_drawLine(int x0, int y0, int x1, int y1, uint16_t color);
 uint16_t randomColor();
+
+void drawFullScreen(uint16_t** input_frame_buffer);
 
 #endif
