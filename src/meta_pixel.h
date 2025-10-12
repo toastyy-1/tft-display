@@ -18,6 +18,7 @@ extern Adafruit_ILI9341 tft;
 
 // frame buffer
 extern uint16_t* MP_frame_buffer;
+extern uint16_t* MP_scaled_buffer;
 // "pixel" display
 extern int MP_BLOCK_SIZE;
 
